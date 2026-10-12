@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>مصنع حكاية | HEKAYA - أزياء الجملة الحريمي الفاخرة</title>
-  <meta name="description" content="المصنع الرائد لتجارة الملابس الحريمي بالجملة - بيجامات وعبايات استقبال بأعلى جودة وأفضل أسعار المصنع." />
+  <title>مصنع حكاية | HEKAYA - أزياء حريمي فاخرة (جملة وقطاعي)</title>
+  <meta name="description" content="المصنع الرائد لتجارة الملابس الحريمي - بيجامات وعبايات استقبال بأعلى جودة وأفضل أسعار المصنع." />
   <link rel="icon" type="image/png" href="Picsart_26-10-11_18-19-42-821.png" />
   
   <!-- خطوط عربية وأيقونات Font Awesome -->
@@ -336,17 +336,106 @@
     .section-title h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 900; color: var(--brand-dark); margin-bottom: 8px; }
     .section-title p { color: var(--brand-gray); font-size: 15px; }
 
-    .filter-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
-    .tab-btn {
-      padding: 9px 22px;
+    .search-filter-wrapper {
+      max-width: 700px;
+      margin: 0 auto 25px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .search-box {
+      position: relative;
+      width: 100%;
+    }
+    .search-box .search-icon {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 15px;
+      color: var(--brand-gold-dark);
+      pointer-events: none;
+    }
+    .search-input {
+      width: 100%;
+      padding: 12px 46px 12px 42px;
       border-radius: 25px;
+      border: 1.5px solid rgba(198, 156, 85, 0.35);
+      background: white;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--brand-dark);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      transition: var(--transition);
+      font-family: inherit;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: var(--brand-gold);
+      box-shadow: 0 4px 18px rgba(198, 156, 85, 0.22);
+      background: #fffdf9;
+    }
+    .search-clear-btn {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #eee;
+      color: var(--brand-dark);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+    }
+    .search-clear-btn:hover { background: var(--danger); color: white; }
+
+    .catalog-status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--brand-gray);
+      padding: 0 4px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .catalog-empty-search {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 50px 20px;
+      background: white;
+      border-radius: 16px;
+      border: 1.5px dashed rgba(198, 156, 85, 0.4);
+      margin: 10px 0 40px;
+    }
+    .catalog-empty-search i {
+      font-size: 44px;
+      color: var(--brand-gold);
+      margin-bottom: 12px;
+    }
+
+    .filter-tabs { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+    .tab-btn {
+      padding: 8px 18px;
+      border-radius: 20px;
       background: white;
       border: 1px solid rgba(198, 156, 85, 0.4);
       color: var(--brand-dark);
       font-weight: 700;
-      font-size: 14px;
+      font-size: 13px;
       transition: var(--transition);
       box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
     .tab-btn.active, .tab-btn:hover {
       background: var(--brand-gold);
@@ -484,42 +573,116 @@
       overflow: hidden;
       min-height: 42px;
     }
-    .product-title:hover { color: var(--brand-gold); }
+    .product-meta-tags {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin: 4px 0 10px;
+      flex-wrap: wrap;
+    }
     .product-code-tag {
-      display: inline-block;
-      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--brand-dark);
+      background: #f1ede5;
+      border: 1px solid rgba(198, 156, 85, 0.3);
+      padding: 3px 8px;
+      border-radius: 10px;
+      white-space: nowrap;
+      letter-spacing: 0.3px;
+    }
+    .product-material-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
       font-weight: 700;
-      color: var(--brand-gold-dark);
-      background: var(--brand-gold-soft);
-      padding: 2px 10px;
-      border-radius: 12px;
-      margin: 0 auto 10px;
-      width: fit-content;
-      letter-spacing: 0.5px;
+      color: #8c6527;
+      background: rgba(198, 156, 85, 0.12);
+      border: 1px solid rgba(198, 156, 85, 0.3);
+      padding: 3px 9px;
+      border-radius: 10px;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     
     .product-price-box { margin-top: auto; margin-bottom: 12px; }
-    .product-price { font-size: 19px; font-weight: 900; color: var(--brand-gold); }
-    .product-price-unit { font-size: 11px; font-weight: 600; color: var(--brand-gray); display: block; margin-top: 2px; }
+    .product-price { font-size: 19px; font-weight: 900; color: var(--brand-gold); display: flex; align-items: baseline; justify-content: center; gap: 4px; }
+    .price-type-tag { font-size: 11px; font-weight: 700; color: var(--brand-gray); }
+    .product-price-unit { font-size: 11.5px; font-weight: 700; color: var(--brand-dark); display: block; margin-top: 3px; background: rgba(198,156,85,0.08); padding: 3px 8px; border-radius: 8px; border: 1px dashed rgba(198,156,85,0.25); }
     
-    .product-actions { display: flex; gap: 8px; align-items: center; }
-    .btn-add {
-      flex: 1;
-      padding: 10px;
+    .product-actions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 38px;
+      gap: 6px;
+      align-items: center;
+    }
+    .product-actions-grid.out-stock {
+      grid-template-columns: 1fr 38px;
+    }
+
+    .btn-action-piece {
+      padding: 9px 6px;
       background: var(--brand-dark);
       color: white;
       border-radius: var(--radius-sm);
       font-weight: 800;
-      font-size: 13px;
+      font-size: 12px;
       transition: var(--transition);
       display: flex;
       justify-content: center;
       align-items: center;
+      gap: 4px;
+      border: 1px solid rgba(255,255,255,0.1);
+      white-space: nowrap;
+    }
+    .btn-action-piece:hover {
+      background: #333333;
+      border-color: var(--brand-gold);
+      color: var(--brand-gold);
+      transform: translateY(-1px);
+    }
+
+    .btn-action-dozen {
+      padding: 9px 6px;
+      background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-gold-dark) 100%);
+      color: white;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 12px;
+      transition: var(--transition);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 2px 8px rgba(198, 156, 85, 0.25);
+      white-space: nowrap;
+    }
+    .btn-action-dozen:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(198, 156, 85, 0.4);
+    }
+
+    .btn-add.disabled {
+      background: #b5b5b5;
+      color: #f0f0f0;
+      cursor: not-allowed;
+      padding: 9px 8px;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       gap: 6px;
     }
-    .btn-add:hover { background: var(--brand-gold); transform: translateY(-1px); }
-    .btn-add.disabled { background: #b5b5b5; color: #f0f0f0; cursor: not-allowed; }
-    .btn-add.disabled:hover { background: #b5b5b5; transform: none; }
 
     .btn-fav {
       width: 38px;
@@ -530,7 +693,7 @@
       align-items: center;
       justify-content: center;
       color: var(--brand-gray);
-      font-size: 16px;
+      font-size: 15px;
       transition: var(--transition);
       background: white;
       flex-shrink: 0;
@@ -766,15 +929,108 @@
     .modal-stock-status.in-stock { background: #eafaf1; color: #27ae60; border: 1px solid #d4efdf; }
     .modal-stock-status.out-of-stock { background: #fdedec; color: #e74c3c; border: 1px solid #fadbd8; }
     
-    .modal-title { font-size: 22px; font-weight: 900; color: var(--brand-dark); margin-bottom: 6px; line-height: 1.35; }
-    .modal-code-badge { font-size: 14px; color: var(--brand-gray); margin-bottom: 16px; font-weight: 700; letter-spacing: 0.5px; }
+    .modal-title { font-size: 22px; font-weight: 900; color: var(--brand-dark); margin-bottom: 12px; line-height: 1.35; }
     
+    /* بطاقات مميزة ومستقلة: الكود والخامة */
+    .modal-meta-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .modal-meta-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: #faf7f2;
+      border: 1.5px solid rgba(198, 156, 85, 0.25);
+      border-radius: 14px;
+      transition: var(--transition);
+    }
+    .modal-meta-card:hover {
+      border-color: var(--brand-gold);
+      background: #fdfbf7;
+    }
+    .modal-meta-card .meta-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: white;
+      color: var(--brand-gold-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      flex-shrink: 0;
+    }
+    .modal-meta-card .meta-texts {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      line-height: 1.3;
+    }
+    .modal-meta-card .meta-lbl {
+      font-size: 11px;
+      color: var(--brand-gray);
+      font-weight: 700;
+    }
+    .modal-meta-card .meta-val {
+      font-size: 13.5px;
+      color: var(--brand-dark);
+      font-weight: 800;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    /* تبويب اختيار نوع الشراء (قطاعي أو جملة) داخل المودال */
+    .modal-unit-selector {
+      display: flex;
+      gap: 8px;
+      background: #f1ede5;
+      padding: 5px;
+      border-radius: 14px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(198, 156, 85, 0.2);
+    }
+    .unit-tab-btn {
+      flex: 1;
+      padding: 10px 8px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--brand-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .unit-tab-btn i { font-size: 15px; }
+    .unit-tab-btn.active {
+      background: white;
+      color: var(--brand-gold-dark);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border: 1px solid rgba(198, 156, 85, 0.3);
+    }
+    .unit-discount-tag {
+      font-size: 10px;
+      background: #e74c3c;
+      color: white;
+      padding: 2px 7px;
+      border-radius: 10px;
+      font-weight: 900;
+    }
+
     .modal-price-box {
       background: var(--brand-gold-light);
       border: 1px solid rgba(198, 156, 85, 0.25);
       padding: 16px;
       border-radius: 14px;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
     }
     .modal-price-main { display: flex; align-items: baseline; gap: 8px; }
     .modal-price-value { font-size: 28px; font-weight: 900; color: var(--brand-gold); }
@@ -790,6 +1046,87 @@
       justify-content: space-between;
     }
     .modal-dozen-price span { color: var(--brand-gold-dark); font-weight: 900; }
+
+    /* بانر تنبيه خصم الجملة بالواتساب */
+    .modal-wholesale-badge-banner {
+      background: linear-gradient(135deg, rgba(198,156,85,0.14) 0%, rgba(255,255,255,0.9) 100%);
+      border: 1.5px dashed var(--brand-gold);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .modal-wholesale-badge-banner i {
+      font-size: 20px;
+      color: var(--brand-gold-dark);
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    .modal-wholesale-badge-banner strong {
+      font-size: 13px;
+      color: var(--brand-gold-dark);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .modal-wholesale-badge-banner p {
+      font-size: 12px;
+      color: #444;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* عداد الكمية داخل المودال */
+    .modal-qty-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fafafa;
+      border: 1px solid #e8e8e8;
+      padding: 10px 14px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+    }
+    .modal-qty-box .qty-label {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--brand-dark);
+    }
+    .modal-qty-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      border: 1px solid #d5d5d5;
+      border-radius: 8px;
+      padding: 2px 4px;
+    }
+    .modal-qty-control button {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: #f0f0f0;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--brand-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .modal-qty-control button:hover {
+      background: var(--brand-gold);
+      color: white;
+    }
+    .modal-qty-control span {
+      min-width: 80px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--brand-dark);
+    }
     
     .modal-specs { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
     .modal-spec-row { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: #444; }
@@ -1078,7 +1415,30 @@
     .cart-img { width: 75px; height: 95px; border-radius: 8px; object-fit: cover; flex-shrink: 0; }
     .cart-details { flex: 1; display: flex; flex-direction: column; }
     .cart-title { font-weight: 800; font-size: 14px; margin-bottom: 4px; line-height: 1.3; }
-    .cart-code { font-size: 11px; color: var(--brand-gold-dark); font-weight: 700; margin-bottom: 4px; }
+    .cart-meta-tags {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 6px;
+      flex-wrap: wrap;
+    }
+    .cart-meta-tag {
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .cart-meta-tag.code {
+      background: #f1ede5;
+      color: var(--brand-dark);
+    }
+    .cart-meta-tag.material {
+      background: var(--brand-gold-soft);
+      color: var(--brand-gold-dark);
+    }
     .cart-price { color: var(--brand-gold); font-weight: 800; font-size: 15px; margin-bottom: 8px; }
     
     .qty-control {
@@ -1107,6 +1467,54 @@
     
     .empty-state { text-align: center; padding: 50px 15px; color: var(--brand-gray); }
     .empty-state i { font-size: 50px; color: #e5e5e5; margin-bottom: 15px; }
+
+    .cart-unit-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 12px;
+      width: fit-content;
+      margin-bottom: 6px;
+    }
+    .cart-unit-pill.wholesale {
+      background: var(--brand-gold-soft);
+      color: var(--brand-gold-dark);
+      border: 1px solid rgba(198,156,85,0.3);
+    }
+    .cart-unit-pill.retail {
+      background: #eef2f7;
+      color: #2c3e50;
+      border: 1px solid #dce4ec;
+    }
+
+    .cart-wholesale-note {
+      background: linear-gradient(135deg, rgba(198,156,85,0.12) 0%, rgba(255,255,255,0.8) 100%);
+      border: 1px dashed var(--brand-gold);
+      border-radius: 10px;
+      padding: 9px 12px;
+      margin-bottom: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brand-gold-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      line-height: 1.4;
+    }
+
+    .checkout-unit-badge {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 1px 7px;
+      border-radius: 8px;
+      margin-right: 4px;
+    }
+    .checkout-unit-badge.wholesale { background: var(--brand-gold-soft); color: var(--brand-gold-dark); border: 1px solid rgba(198,156,85,0.3); }
+    .checkout-unit-badge.retail { background: #eef2f7; color: #2c3e50; }
 
     /* ================= قائمة الموبايل الجانبية (Mobile Drawer) ================= */
     .mobile-menu-links { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
@@ -1392,14 +1800,30 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
       }
-      .product-info { padding: 12px; }
       .product-title { font-size: 13.5px; min-height: 36px; margin-bottom: 3px; }
-      .product-code-tag { font-size: 10.5px; padding: 1px 8px; margin-bottom: 6px; }
+      .product-meta-tags { gap: 4px; margin: 3px 0 8px; }
+      .product-code-tag { font-size: 10px; padding: 2px 6px; }
+      .product-material-tag { font-size: 10px; padding: 2px 7px; max-width: 100%; }
+      .modal-meta-grid { grid-template-columns: 1fr; gap: 8px; }
       .product-price { font-size: 16px; }
       .product-price-unit { font-size: 10px; }
-      .product-actions { gap: 6px; }
-      .btn-add { padding: 8px 6px; font-size: 11.5px; gap: 4px; }
-      .btn-fav { width: 34px; height: 34px; font-size: 14px; }
+      .product-actions-grid {
+        grid-template-columns: 1fr 1fr 32px;
+        gap: 4px;
+      }
+      .product-actions-grid.out-stock {
+        grid-template-columns: 1fr 32px;
+      }
+      .btn-action-piece, .btn-action-dozen {
+        padding: 7px 3px;
+        font-size: 10.5px;
+        gap: 3px;
+      }
+      .btn-add.disabled {
+        padding: 7px 4px;
+        font-size: 10.5px;
+      }
+      .btn-fav { width: 32px; height: 32px; font-size: 13px; }
       
       .badge-img-count { font-size: 10px; padding: 3px 8px; top: 6px; left: 6px; }
       .badge-out-of-stock { font-size: 10px; padding: 3px 8px; top: 6px; right: 6px; }
@@ -1447,23 +1871,22 @@
 
       <!-- أدوات الهيدر (ظاهرة للجميع وبالأخص زر تأكيد الطلب البارز) -->
       <div class="header-tools">
-        <!-- زر تأكيد الطلب البارز في الهيدر (حل مشكلة عدم ظهوره في الموبايل)
-        <button class="btn-header-checkout" onclick="switchView('checkout-view')" title="تأكيد ومتابعة الطلبية">
+        <!-- روابط السوشيال (تختفي في الموبايل وموجودة بالقائمة لتوفير المساحة) -->
+        <a href="https://www.facebook.com/share/1GX6AXfzvH/" target="_blank" class="social-btn" title="فيسبوك"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://t.me/hekaya_store" target="_blank" class="social-btn" title="تيليجرام"><i class="fa-brands fa-telegram"></i></a>
+<!-- 
+        <button class="btn-header-checkout" onclick="switchView('checkout-view')" id="headerCheckoutBtn" title="تأكيد الشراء">
           <i class="fa-solid fa-clipboard-check"></i>
           <span class="txt">تأكيد الطلب</span>
           <span class="badge" id="headerCheckoutBadge">0</span>
         </button> -->
-
-        <!-- روابط السوشيال (تختفي في الموبايل وموجودة بالقائمة لتوفير المساحة) -->
-        <a href="https://www.facebook.com/share/1GX6AXfzvH/" target="_blank" class="social-btn" title="فيسبوك"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://t.me/hekaya_store" target="_blank" class="social-btn" title="تيليجرام"><i class="fa-brands fa-telegram"></i></a>
 
         <button class="icon-btn" onclick="toggleDrawer('fav-drawer')" title="المفضلة">
           <i class="fa-regular fa-heart"></i>
           <span class="badge" id="favCount">0</span>
         </button>
         
-        <button class="icon-btn" onclick="toggleDrawer('cart-drawer')" title="سلة الجملة">
+        <button class="icon-btn" onclick="toggleDrawer('cart-drawer')" title="سلة المشتريات">
           <i class="fa-solid fa-bag-shopping"></i>
           <span class="badge" id="cartCount">0</span>
         </button>
@@ -1544,7 +1967,7 @@
         </button>
 
         <button class="mobile-menu-item" onclick="closeDrawers(); toggleDrawer('cart-drawer');">
-          <i class="fa-solid fa-bag-shopping"></i> سلة الجملة (<span id="menuCartCount">0</span> دستة)
+          <i class="fa-solid fa-bag-shopping"></i> سلة المشتريات (<span id="menuCartCount">0</span> صنف)
         </button>
         <button class="mobile-menu-item" onclick="closeDrawers(); toggleDrawer('fav-drawer');">
           <i class="fa-solid fa-heart"></i> قائمة المفضلة (<span id="menuFavCount">0</span>)
@@ -1634,14 +2057,27 @@
     <div class="container">
       <div class="section-title">
         <h2>التشكيلة الحصرية للموسم</h2>
-        <p>تصاميم عصرية جاهزة للشحن الفوري لكافة المحافظات (أسعار جملة القطعة)</p>
+        <p>تصاميم عصرية جاهزة للشحن الفوري لكافة المحافظات (متاح بالقطعة قطاعي وبالدستة جملة)</p>
       </div>
       
-      <div class="filter-tabs">
-        <button class="tab-btn active" data-filter="all">جميع الموديلات</button>
-        <button class="tab-btn" data-filter="summer">التشكيلة الصيفية</button>
-        <button class="tab-btn" data-filter="winter">التشكيلة الشتوية</button>
+      <!-- شريط البحث السريع وتصنيفات الموديلات -->
+      <div class="search-filter-wrapper">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="productSearchInput" class="search-input" placeholder="ابحث بكود الموديل أو نوع الخامة (مثلاً: 101 أو قطن أو قطيفة)..." autocomplete="off" oninput="handleSearchInput(this.value)">
+          <button type="button" id="clearSearchBtn" class="search-clear-btn" onclick="clearSearch()" title="مسح البحث">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="filter-tabs">
+          <button class="tab-btn active" data-filter="all"><i class="fa-solid fa-boxes-stacked"></i> جميع الموديلات</button>
+          <button class="tab-btn" data-filter="summer"><i class="fa-solid fa-sun"></i> كوليكشن صيفي</button>
+          <button class="tab-btn" data-filter="winter"><i class="fa-solid fa-snowflake"></i> كوليكشن شتوي</button>
+        </div>
       </div>
+
+      <div class="catalog-status-bar" id="catalogStatusBar"></div>
 
       <div class="products-grid" id="productsGrid">
         <!-- المنتجات تضاف برمجياً -->
@@ -1654,24 +2090,25 @@
     <div class="container checkout-wrapper">
       <div class="section-title">
         <h2>تأكيد الطلبية</h2>
-        <p>أكمل بيانات التواصل وسنقوم بالتواصل معك لتأكيد الشحن والخصومات</p>
+        <p>أكمل بيانات التواصل وسنقوم بالتواصل معك لتأكيد الشحن وتطبيق الخصم المستحق</p>
       </div>
 
-      <!-- رسالة الخصم النفسية -->
+      <!-- رسالة الخصم النفسية لطلبات الجملة -->
       <div class="discount-banner">
-        <i class="fa-solid fa-gift"></i>
+        <i class="fa-solid fa-handshake-angle"></i>
         <p>
-          نحن نقدر شركاء نجاحنا.. سيتم تطبيق <strong>خصومات إضافية حصرية</strong> على إجمالي الفاتورة 
-          بناءً على كمية طلبك الإجمالية وطريقة الدفع المتفق عليها عند مراجعة الطلب معنا عبر الواتساب.
+          <strong>نظام الشراء والخصومات في مصنع حكاية:</strong> نوفر الطلب بالقطعة (قطاعي) وبالدستة (جملة) . 
+          و<strong>لطلبات الجملة (بالدستة والكميات)</strong> سيتم مراجعة إجمالي الكمية وتطبيق 
+          <strong>خصم تجاري خاص</strong> نتفق عليه معكم مباشرة عبر الواتساب!
         </p>
       </div>
 
       <div class="checkout-layout">
         <div class="form-card">
-          <h3 class="form-title">بيانات التاجر والشحن</h3>
+          <h3 class="form-title">بيانات العميل / التاجر والشحن</h3>
           
           <div class="form-group">
-            <label>اسم التاجر أو المكتب <span>(مطلوب)</span></label>
+            <label>اسم العميل أو اسم المحل/المكتب <span>(مطلوب)</span></label>
             <input type="text" id="custName" class="form-control" placeholder="اكتب اسمك أو اسم المحل/المكتب" autocomplete="name">
           </div>
           
@@ -1703,7 +2140,7 @@
             </div>
             
             <div style="font-size: 12.5px; color: #ffd700; margin-top: 10px; font-weight: 600; line-height: 1.5;">
-              <i class="fa-solid fa-circle-info"></i> هذا الإجمالي مبدئي قبل تطبيق خصم الكميات لكبار التجار والمكاتب.
+              <i class="fa-solid fa-circle-info"></i> لطلبات الجملة: هذا الإجمالي مبدئي قبل تطبيق خصم الكمية المتفق عليه بالواتساب.
             </div>
 
             <div class="summary-total">
@@ -1730,7 +2167,7 @@
   <!-- سلة المشتريات -->
   <aside class="drawer" id="cart-drawer">
     <div class="drawer-header">
-      <h3><i class="fa-solid fa-basket-shopping" style="color: var(--brand-gold);"></i> سلة الجملة</h3>
+      <h3><i class="fa-solid fa-basket-shopping" style="color: var(--brand-gold);"></i> سلة المشتريات (جملة وقطاعي)</h3>
       <button class="btn-close" onclick="closeDrawers()"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="drawer-body" id="cartBody">
@@ -1742,7 +2179,7 @@
         <span id="cartTotalDrawer" style="color: var(--brand-gold);">0 ج.م</span>
       </div>
       <p style="font-size: 12px; color: var(--brand-gray); margin-bottom: 14px; text-align: center;">
-        * السعر قابل للخصم الإضافي عند مراجعة الطلب
+        * يُطبق خصم إضافي خاص لطلبات الجملة عند الاتفاق عبر الواتساب
       </p>
       <button class="btn-gold" style="width: 100%; justify-content: center;" onclick="closeDrawers(); switchView('checkout-view');">
         <i class="fa-solid fa-clipboard-check"></i> المتابعة لتأكيد الطلب
@@ -1805,23 +2242,72 @@
         <div class="modal-details">
           <div class="modal-stock-status" id="modalStockStatus"></div>
           <h2 class="modal-title" id="modalTitle">اسم الموديل</h2>
-          <div class="modal-code-badge" id="modalCode">كود: HK-000</div>
+
+          <!-- بطاقات مميزة ومستقلة: كود الموديل + نوع وسحر الخامة -->
+          <div class="modal-meta-grid">
+            <div class="modal-meta-card">
+              <div class="meta-icon"><i class="fa-solid fa-barcode"></i></div>
+              <div class="meta-texts">
+                <span class="meta-lbl">كود الموديل</span>
+                <strong class="meta-val" id="modalCodeValue">HK-000</strong>
+              </div>
+            </div>
+            <div class="modal-meta-card">
+              <div class="meta-icon"><i class="fa-solid fa-gem"></i></div>
+              <div class="meta-texts">
+                <span class="meta-lbl">نوع وسحر الخامة</span>
+                <strong class="meta-val" id="modalMaterialValue">خامة فاخرة</strong>
+              </div>
+            </div>
+          </div>
           
+          <!-- اختيار نظام الشراء: قطاعي أو جملة -->
+          <div class="modal-unit-selector">
+            <button type="button" class="unit-tab-btn active" id="modalTabPiece" onclick="setModalOrderUnit('piece')">
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span>طلب بالقطعة (قطاعي)</span>
+            </button>
+            <button type="button" class="unit-tab-btn" id="modalTabDozen" onclick="setModalOrderUnit('dozen')">
+              <i class="fa-solid fa-boxes-stacked"></i>
+              <span>طلب بالدستة (جملة)</span>
+              <span class="unit-discount-tag">خصم خاص</span>
+            </button>
+          </div>
+
           <div class="modal-price-box">
             <div class="modal-price-main">
               <span class="modal-price-value" id="modalPrice">0</span>
-              <span class="modal-price-lbl">ج.م / للقطعة</span>
+              <span class="modal-price-lbl" id="modalPriceUnitLbl">ج.م / للقطعة</span>
             </div>
-            <div class="modal-dozen-price">
-              <span>سعر الدستة (12 قطعة):</span>
+            <div class="modal-dozen-price" id="modalDozenPriceRow">
+              <span id="modalAltPriceTitle">سعر الدستة (12 قطعة):</span>
               <span id="modalDozenPriceText">0 ج.م</span>
+            </div>
+          </div>
+
+          <!-- بانر تنبيه خصم الجملة بالواتساب -->
+          <div class="modal-wholesale-badge-banner" id="modalWholesaleBanner" style="display: none;">
+            <i class="fa-solid fa-handshake-angle"></i>
+            <div>
+              <strong>خصم تجاري خاص للكميات والجملة:</strong>
+              <p>السعر الموضح هو السعر الأساسي للقطعة والدستة.. عند التواصل بالواتساب سيتم مراجعة الكمية وتحديد الخصم المستحق والاتفاق عليه معكم!</p>
+            </div>
+          </div>
+
+          <!-- عداد الكمية التفاعلي -->
+          <div class="modal-qty-box">
+            <span class="qty-label" id="modalQtyLabel">الكمية المطلوبة (بالقطعة):</span>
+            <div class="modal-qty-control">
+              <button type="button" onclick="changeModalQty(-1)" aria-label="تقليل">-</button>
+              <span id="modalQtyDisplay">1 قطعة</span>
+              <button type="button" onclick="changeModalQty(1)" aria-label="زيادة">+</button>
             </div>
           </div>
 
           <div class="modal-specs">
             <div class="modal-spec-row">
-              <i class="fa-solid fa-boxes-stacked"></i>
-              <span>البيع بنظام الجملة: الإضافة تتم بالدستة (12 قطعة للموديل)</span>
+              <i class="fa-solid fa-tags"></i>
+              <span id="modalSpecUnitText">متاح الطلب بالقطعة قطاعي وبالدستة جملة</span>
             </div>
             <div class="modal-spec-row">
               <i class="fa-solid fa-gem"></i>
@@ -1829,7 +2315,7 @@
             </div>
             <div class="modal-spec-row">
               <i class="fa-solid fa-truck-fast"></i>
-              <span>شحن وتوصيل فوري متاح لكافة المحافظات والمكاتب</span>
+              <span>شحن وتوصيل فوري متاح لكافة المحافظات</span>
             </div>
           </div>
 
@@ -1837,7 +2323,7 @@
           <div class="modal-actions-area">
             <div class="modal-btn-row">
               <button class="modal-add-cart-btn" id="modalAddBtn" onclick="addCurrentModalToCart()">
-                <i class="fa-solid fa-cart-plus"></i> أضف لسلة الجملة (1 دستة)
+                <i class="fa-solid fa-cart-plus"></i> أضف لسلة القطاعي (1 قطعة)
               </button>
               <button class="modal-fav-toggle-btn" id="modalFavBtn" onclick="toggleCurrentModalFav()" title="حفظ في المفضلة">
                 <i class="fa-solid fa-heart"></i>
@@ -2221,6 +2707,64 @@
     let cart = JSON.parse(localStorage.getItem('hekaya_luxury_cart')) || [];
     let favs = JSON.parse(localStorage.getItem('hekaya_luxury_fav')) || [];
 
+    // ترقية عناصر السلة القديمة لضمان التوافق التام (قطاعي وجملة)
+    cart = cart.map(item => {
+      if (!item.unit) {
+        const isDozen = item.qty >= 12 && item.qty % 12 === 0;
+        return {
+          ...item,
+          unit: isDozen ? 'dozen' : 'piece',
+          qty: isDozen ? item.qty / 12 : item.qty,
+          cartKey: `${item.id}_${isDozen ? 'dozen' : 'piece'}`
+        };
+      }
+      if (!item.cartKey) {
+        item.cartKey = `${item.id}_${item.unit}`;
+      }
+      return item;
+    });
+
+    // ملخص السلة الذكي (حساب القطاعي والجملة والإجمالي)
+    function getCartSummary() {
+      let totalMoney = 0;
+      let totalRetailMoney = 0;
+      let totalWholesaleMoney = 0;
+      let totalPieces = 0;
+      let totalRetailPieces = 0;
+      let totalWholesaleDozens = 0;
+
+      cart.forEach(item => {
+        if (item.unit === 'dozen') {
+          const dozens = Number(item.qty) || 0;
+          const pieces = dozens * 12;
+          const money = (Number(item.price) || 0) * pieces;
+          totalMoney += money;
+          totalWholesaleMoney += money;
+          totalPieces += pieces;
+          totalWholesaleDozens += dozens;
+        } else {
+          const pieces = Number(item.qty) || 0;
+          const money = (Number(item.price) || 0) * pieces;
+          totalMoney += money;
+          totalRetailMoney += money;
+          totalPieces += pieces;
+          totalRetailPieces += pieces;
+        }
+      });
+
+      return {
+        totalMoney,
+        totalRetailMoney,
+        totalWholesaleMoney,
+        totalPieces,
+        totalRetailPieces,
+        totalWholesaleDozens,
+        hasWholesale: totalWholesaleDozens > 0,
+        hasRetail: totalRetailPieces > 0,
+        distinctCount: cart.length
+      };
+    }
+
     // صور مساعدة
     function getProductImages(prod) {
       if (!prod) return [];
@@ -2252,28 +2796,94 @@
       
       window.scrollTo({ top: 0, behavior: 'smooth' });
       if (viewId === 'checkout-view') renderCheckout();
-      updateBadges(); // لتحديث وإخفاء الشريط العائم تلقائياً عند الدخول لصفحة تأكيد الطلب
+      updateBadges();
     }
 
     document.querySelectorAll('.nav-links button').forEach(btn => {
       btn.addEventListener('click', (e) => switchView(e.target.dataset.target));
     });
 
+    let currentCategoryFilter = 'all';
+    let currentSearchQuery = '';
+
+    function handleSearchInput(val) {
+      currentSearchQuery = (val || '').trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (clearBtn) {
+        clearBtn.style.display = currentSearchQuery.length > 0 ? 'flex' : 'none';
+      }
+      renderProducts();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('productSearchInput');
+      if (input) input.value = '';
+      currentSearchQuery = '';
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (clearBtn) clearBtn.style.display = 'none';
+      renderProducts();
+    }
+
     function filterFromMenu(cat) {
+      currentCategoryFilter = cat;
       switchView('products-view');
       document.querySelectorAll('.tab-btn').forEach(b => {
         b.classList.toggle('active', b.dataset.filter === cat);
       });
-      renderProducts(cat);
+      renderProducts();
     }
 
-    // عرض المنتجات (ترتيب الأحدث للأعلى / أكبر ID في القمة)
-    function renderProducts(filter = 'all') {
+    // عرض المنتجات (مع دعم البحث وعرض الكود والخامة بشكل مستقل وأنيق)
+    function renderProducts() {
       const grid = document.getElementById('productsGrid');
+      const statusBar = document.getElementById('catalogStatusBar');
       grid.innerHTML = '';
       
-      const filtered = filter === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.category === filter);
+      let filtered = currentCategoryFilter === 'all' 
+        ? PRODUCTS 
+        : PRODUCTS.filter(p => p.category === currentCategoryFilter);
+
+      if (currentSearchQuery) {
+        filtered = filtered.filter(p => {
+          const codeMatch = (p.code || '').toLowerCase().includes(currentSearchQuery);
+          const titleMatch = (p.title || '').toLowerCase().includes(currentSearchQuery);
+          const matMatch = (p.material || '').toLowerCase().includes(currentSearchQuery);
+          return codeMatch || titleMatch || matMatch;
+        });
+      }
+
       const sorted = [...filtered].sort((a, b) => (Number(b.id) || 0) - (Number(a.id) || 0));
+
+      if (statusBar) {
+        if (currentSearchQuery) {
+          statusBar.innerHTML = `
+            <span>نتائج البحث عن "<strong>${currentSearchQuery}</strong>": (${sorted.length} موديل متطابق)</span>
+            <button onclick="clearSearch()" style="color:var(--danger); font-size:12px; font-weight:800; cursor:pointer;">
+              <i class="fa-solid fa-xmark"></i> إلغاء البحث وعرض الكل
+            </button>
+          `;
+        } else {
+          const catLabel = currentCategoryFilter === 'summer' ? 'التشكيلة الصيفية' : (currentCategoryFilter === 'winter' ? 'التشكيلة الشتوية' : 'كافة الموديلات');
+          statusBar.innerHTML = `
+            <span>المعروض الآن: <strong>${catLabel}</strong> (${sorted.length} موديل متاح)</span>
+            <span style="font-size:12px; color:var(--brand-gold-dark);">متاح طلب قطاعي أو جملة</span>
+          `;
+        }
+      }
+
+      if (sorted.length === 0) {
+        grid.innerHTML = `
+          <div class="catalog-empty-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h3 style="font-weight:900; margin-bottom:8px; font-size:18px;">لا توجد موديلات تطابق هذا البحث</h3>
+            <p style="font-size:13.5px; color:var(--brand-gray); margin-bottom:18px;">جرب البحث بكلمة أخرى مثل "قطن" أو "قطيفة" أو اكتب كود الموديل مثل "101"</p>
+            <button class="btn-gold" style="margin:0 auto; padding:9px 22px; font-size:13px;" onclick="clearSearch()">
+              <i class="fa-solid fa-rotate-left"></i> عرض كافة الموديلات
+            </button>
+          </div>
+        `;
+        return;
+      }
       
       sorted.forEach(p => {
         const isFav = favs.some(f => f.id === p.id);
@@ -2281,6 +2891,7 @@
         const primaryImg = images[0];
         const isMulti = images.length > 1;
         const isOut = Boolean(p.outOfStock);
+        const dozenPrice = p.price * 12;
         
         grid.innerHTML += `
           <div class="product-card ${isOut ? 'is-out-of-stock' : ''}">
@@ -2306,27 +2917,38 @@
             </div>
 
             <div class="product-info">
-              <h3 class="product-title" onclick="openProductModal(${p.id})">${p.title}</h3>
-              <div class="product-code-tag">كود: ${p.code}</div>
+              <h3 class="product-title" onclick="openProductModal(${p.id})" title="${p.title}">${p.title}</h3>
+              
+              <!-- وسوم الكود والخامة المستقلة -->
+              <div class="product-meta-tags">
+                <span class="product-code-tag"><i class="fa-solid fa-barcode"></i> كود: ${p.code}</span>
+                <span class="product-material-tag" title="نوع الخامة: ${p.material || 'خامة فاخرة'}"><i class="fa-solid fa-gem"></i> ${p.material || 'خامة فاخرة'}</span>
+              </div>
               
               <div class="product-price-box">
-                <div class="product-price">${p.price} ج.م</div>
-                <span class="product-price-unit">سعر القطعة جملة (الدستة: ${p.price * 12} ج.م)</span>
+                <div class="product-price">
+                  <span>${p.price} ج.م</span>
+                  <span class="price-type-tag">/ للقطعة</span>
+                </div>
+                <span class="product-price-unit">الدستة (12 قطعة): ${dozenPrice.toLocaleString('ar-EG')} ج.م</span>
               </div>
 
-              <div class="product-actions">
+              <div class="product-actions-grid ${isOut ? 'out-stock' : ''}">
+                ${isOut ? `
+                  <button class="btn-add disabled" disabled title="هذا الموديل غير متوفر حالياً">
+                    <i class="fa-solid fa-ban"></i> نفد بالمخزون
+                  </button>
+                ` : `
+                  <button class="btn-action-piece" onclick="addToCart(${p.id}, 'piece', 1)" title="إضافة قطعة واحدة (قطاعي)">
+                    <i class="fa-solid fa-plus"></i> قطعة
+                  </button>
+                  <button class="btn-action-dozen" onclick="addToCart(${p.id}, 'dozen', 1)" title="إضافة دستة كاملة (12 قطعة - جملة)">
+                    <i class="fa-solid fa-boxes-stacked"></i> دستة
+                  </button>
+                `}
                 <button class="btn-fav ${isFav ? 'active' : ''}" onclick="toggleFav(${p.id}, this)" title="حفظ في المفضلة">
                   <i class="fa-solid fa-heart"></i>
                 </button>
-                ${isOut ? `
-                  <button class="btn-add disabled" disabled title="هذا الموديل غير متوفر حالياً">
-                    <i class="fa-solid fa-ban"></i> نفد
-                  </button>
-                ` : `
-                  <button class="btn-add" onclick="addToCart(${p.id})">
-                    <i class="fa-solid fa-cart-plus"></i> أضف دستة
-                  </button>
-                `}
               </div>
             </div>
           </div>
@@ -2336,15 +2958,19 @@
 
     document.querySelectorAll('.tab-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
+        const targetBtn = e.target.closest('.tab-btn') || e.target;
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        e.target.classList.add('active');
-        renderProducts(e.target.dataset.filter);
+        targetBtn.classList.add('active');
+        currentCategoryFilter = targetBtn.dataset.filter || 'all';
+        renderProducts();
       });
     });
 
-    // ================= منطق Modal واستعراض الصور مع حماية الأبعاد الكاملة =================
+    // ================= منطق Modal واستعراض الصور وتحديد الكمية والوحدة =================
     let currentModalProduct = null;
     let currentModalImgIndex = 0;
+    let currentModalUnit = 'piece'; // 'piece' أو 'dozen'
+    let currentModalQty = 1;
 
     function openProductModal(id) {
       const prod = PRODUCTS.find(p => p.id === id);
@@ -2352,6 +2978,8 @@
 
       currentModalProduct = prod;
       currentModalImgIndex = 0;
+      currentModalUnit = 'piece';
+      currentModalQty = 1;
 
       const images = getProductImages(prod);
       const isOut = Boolean(prod.outOfStock);
@@ -2361,12 +2989,19 @@
       document.getElementById('modalHeaderTitle').textContent = prod.title;
       document.getElementById('modalHeaderCode').textContent = `كود: ${prod.code}`;
       document.getElementById('modalTitle').textContent = prod.title;
-      document.getElementById('modalCode').textContent = `كود الموديل: ${prod.code}`;
-      document.getElementById('modalPrice').textContent = prod.price;
-      document.getElementById('modalDozenPriceText').textContent = `${prod.price * 12} ج.م`;
-      if (prod.material) {
-        document.getElementById('modalMaterialText').textContent = prod.material;
+      
+      const codeValEl = document.getElementById('modalCodeValue');
+      if (codeValEl) codeValEl.textContent = prod.code;
+
+      const matValEl = document.getElementById('modalMaterialValue');
+      if (matValEl) matValEl.textContent = prod.material || 'خامة مصنع حكاية الفاخرة';
+
+      const matTextEl = document.getElementById('modalMaterialText');
+      if (matTextEl) {
+        matTextEl.textContent = prod.material ? `خامة ${prod.material}` : 'خامات ممتازة وتشطيب عالي الجودة من مصنع حكاية مباشرة';
       }
+
+      updateModalUnitUI();
 
       // حالة المخزون
       const stockEl = document.getElementById('modalStockStatus');
@@ -2380,10 +3015,9 @@
         addBtn.innerHTML = '<i class="fa-solid fa-ban"></i> نفد من المخزون';
       } else {
         stockEl.className = 'modal-stock-status in-stock';
-        stockEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> متوفر للطلب الفوري بالجملة';
+        stockEl.innerHTML = '<i class="fa-solid fa-circle-check"></i> متوفر للطلب المباشر (قطاعي وجملة)';
         addBtn.className = 'modal-add-cart-btn';
         addBtn.disabled = false;
-        addBtn.innerHTML = '<i class="fa-solid fa-cart-plus"></i> أضف لسلة الجملة (1 دستة)';
       }
 
       updateModalFavBtn(isFav);
@@ -2391,6 +3025,71 @@
 
       document.getElementById('productModal').classList.add('active');
       document.body.style.overflow = 'hidden';
+    }
+
+    function setModalOrderUnit(unit) {
+      if (currentModalUnit === unit) return;
+      currentModalUnit = unit;
+      currentModalQty = 1;
+      updateModalUnitUI();
+    }
+
+    function changeModalQty(delta) {
+      currentModalQty = Math.max(1, currentModalQty + delta);
+      updateModalUnitUI();
+    }
+
+    function updateModalUnitUI() {
+      if (!currentModalProduct) return;
+      const prod = currentModalProduct;
+      const isPiece = currentModalUnit === 'piece';
+
+      // أزرار التبويب
+      const tabPiece = document.getElementById('modalTabPiece');
+      const tabDozen = document.getElementById('modalTabDozen');
+      if (tabPiece) tabPiece.classList.toggle('active', isPiece);
+      if (tabDozen) tabDozen.classList.toggle('active', !isPiece);
+
+      // الأسعار والبانر
+      const priceEl = document.getElementById('modalPrice');
+      const unitLbl = document.getElementById('modalPriceUnitLbl');
+      const altTitle = document.getElementById('modalAltPriceTitle');
+      const altPrice = document.getElementById('modalDozenPriceText');
+      const wholesaleBanner = document.getElementById('modalWholesaleBanner');
+      const qtyLabel = document.getElementById('modalQtyLabel');
+      const qtyDisplay = document.getElementById('modalQtyDisplay');
+      const addBtn = document.getElementById('modalAddBtn');
+
+      if (isPiece) {
+        if (priceEl) priceEl.textContent = prod.price;
+        if (unitLbl) unitLbl.textContent = 'ج.م / للقطعة';
+        if (altTitle) altTitle.textContent = 'سعر الدستة (12 قطعة):';
+        if (altPrice) altPrice.textContent = `${(prod.price * 12).toLocaleString('ar-EG')} ج.م`;
+        if (wholesaleBanner) wholesaleBanner.style.display = 'none';
+
+        if (qtyLabel) qtyLabel.textContent = 'الكمية المطلوبة (بالقطعة):';
+        if (qtyDisplay) qtyDisplay.textContent = `${currentModalQty} قطعة`;
+
+        const total = prod.price * currentModalQty;
+        if (addBtn && !prod.outOfStock) {
+          addBtn.innerHTML = `<i class="fa-solid fa-cart-plus"></i> أضف للسلة (${currentModalQty} قطعة) • ${total.toLocaleString('ar-EG')} ج.م`;
+        }
+      } else {
+        const dozenUnitPrice = prod.price * 12;
+        if (priceEl) priceEl.textContent = dozenUnitPrice.toLocaleString('ar-EG');
+        if (unitLbl) unitLbl.textContent = `ج.م / للدستة (12 قطعة)`;
+        if (altTitle) altTitle.textContent = 'سعر القطعة الموحد:';
+        if (altPrice) altPrice.textContent = `${prod.price} ج.م`;
+        if (wholesaleBanner) wholesaleBanner.style.display = 'flex';
+
+        if (qtyLabel) qtyLabel.textContent = 'الكمية المطلوبة (بالدستة):';
+        if (qtyDisplay) qtyDisplay.textContent = `${currentModalQty} دستة (${currentModalQty * 12} قطعة)`;
+
+        const total = dozenUnitPrice * currentModalQty;
+        if (addBtn && !prod.outOfStock) {
+          addBtn.innerHTML = `<i class="fa-solid fa-boxes-stacked"></i> أضف لسلة الجملة (${currentModalQty} دستة) • ${total.toLocaleString('ar-EG')} ج.م`;
+        }
+      }
     }
 
     function closeProductModal(e) {
@@ -2453,7 +3152,6 @@
         mainImg.style.opacity = '1';
       }
 
-      // صياغة عربية واضحة بدون التباس علامة السلاش في RTL
       document.getElementById('modalCounterTag').textContent = `${currentModalImgIndex + 1} من ${images.length}`;
 
       const thumbs = document.querySelectorAll('.gallery-thumb-item');
@@ -2519,14 +3217,22 @@
         showToast("عذراً، هذا الموديل نفد من المخزون حالياً.");
         return;
       }
-      addToCart(currentModalProduct.id);
+      addToCart(currentModalProduct.id, currentModalUnit, currentModalQty);
     }
 
     function orderCurrentModalWA() {
       if (!currentModalProduct) return;
       const p = currentModalProduct;
-      const text = encodeURIComponent(`السلام عليكم مصنع حكاية، أرغب في حجز دستة (12 قطعة) من موديل كود (${p.code}) - ${p.title}. سعر القطعة: ${p.price} ج.م.`);
-      window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, "_blank");
+      let text = '';
+      if (currentModalUnit === 'piece') {
+        const total = p.price * currentModalQty;
+        text = `السلام عليكم مصنع حكاية، أرغب في طلب قطاعي (${currentModalQty} قطعة) من موديل كود [${p.code}] - ${p.title}.\nالخامة: ${p.material || 'خامة فاخرة'}\nسعر القطعة: ${p.price} ج.م (الإجمالي التقديري: ${total.toLocaleString('ar-EG')} ج.م).`;
+      } else {
+        const pieces = currentModalQty * 12;
+        const total = p.price * pieces;
+        text = `السلام عليكم مصنع حكاية، أرغب في حجز جملة (${currentModalQty} دستة = ${pieces} قطعة) من موديل كود [${p.code}] - ${p.title}.\nالخامة: ${p.material || 'خامة فاخرة'}\nالسعر المبدئي: ${total.toLocaleString('ar-EG')} ج.م (في انتظار مراجعة الكمية والاتفاق على نسبة الخصم المستحقة بالجملة).`;
+      }
+      window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
     }
 
     function toggleCurrentModalFav() {
@@ -2571,7 +3277,7 @@
       if (e.key === 'ArrowLeft') nextModalImage();
     });
 
-    // ================= نظام إشعارات Toast راقي بدون alert المزعج =================
+    // ================= نظام إشعارات Toast =================
     function showToast(message, actionText = null, actionCallback = null) {
       const container = document.getElementById('toastContainer');
       const toast = document.createElement('div');
@@ -2607,7 +3313,7 @@
     }
 
     // ================= منطق سلة المشتريات والمفضلة =================
-    function addToCart(id) {
+    function addToCart(id, unit = 'piece', qty = 1) {
       const prod = PRODUCTS.find(p => p.id === id);
       if (!prod) return;
 
@@ -2616,30 +3322,40 @@
         return;
       }
 
-      const exists = cart.find(c => c.id === id);
+      const cartKey = `${id}_${unit}`;
+      const exists = cart.find(c => c.cartKey === cartKey);
       const primaryImg = getPrimaryImage(prod);
       
       if (exists) {
-        exists.qty += 12; // إضافة دستة
+        exists.qty += qty;
       } else {
-        cart.push({...prod, img: primaryImg, qty: 12});
+        cart.push({
+          ...prod,
+          cartKey: cartKey,
+          unit: unit,
+          qty: qty,
+          img: primaryImg
+        });
       }
       
       saveData();
       updateBadges();
       renderCart();
       
-      showToast(`تمت إضافة 1 دستة (12 قطعة) كود ${prod.code}`, "تأكيد الطلب ⬅️", () => {
+      const unitText = unit === 'dozen' ? `${qty} دستة (${qty * 12} قطعة)` : `${qty} قطعة`;
+      showToast(`تمت إضافة ${unitText} كود ${prod.code}`, "تأكيد الطلب ⬅️", () => {
         closeProductModal();
         switchView('checkout-view');
       });
     }
 
-    function updateQty(id, change) {
-      const item = cart.find(c => c.id === id);
+    function updateQty(cartKey, change) {
+      const item = cart.find(c => c.cartKey === cartKey || c.id === cartKey);
       if (item) {
         item.qty += change;
-        if (item.qty < 12) cart = cart.filter(c => c.id !== id);
+        if (item.qty <= 0) {
+          cart = cart.filter(c => c !== item);
+        }
         saveData();
         updateBadges();
         renderCart();
@@ -2647,8 +3363,8 @@
       }
     }
 
-    function removeCartItem(id) {
-      cart = cart.filter(c => c.id !== id);
+    function removeCartItem(cartKey) {
+      cart = cart.filter(c => c.cartKey !== cartKey && c.id !== cartKey);
       saveData();
       updateBadges();
       renderCart();
@@ -2690,36 +3406,36 @@
       localStorage.setItem('hekaya_luxury_fav', JSON.stringify(favs));
     }
 
-    // مزامنة كافة العدادات والشارات في الهيدر، القائمة، والشريط السفلي
+    // مزامنة كافة العدادات والشارات
     function updateBadges() {
-      const totalDozens = cart.reduce((sum, item) => sum + (item.qty / 12), 0);
-      const totalMoney = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const summary = getCartSummary();
       const isCheckout = document.getElementById('checkout-view')?.classList.contains('active');
       
-      // شارات السلة
-      document.getElementById('cartCount').textContent = totalDozens;
+      const badgeCount = summary.totalPieces;
+      document.getElementById('cartCount').textContent = badgeCount;
       const bNavCart = document.getElementById('bottomNavCartBadge');
-      if (bNavCart) bNavCart.textContent = totalDozens;
+      if (bNavCart) bNavCart.textContent = badgeCount;
       const mCartCount = document.getElementById('menuCartCount');
-      if (mCartCount) mCartCount.textContent = totalDozens;
+      if (mCartCount) mCartCount.textContent = badgeCount;
 
-      // شارات تأكيد الطلب البارزة
       const hCheck = document.getElementById('headerCheckoutBadge');
-      if (hCheck) hCheck.textContent = totalDozens;
+      if (hCheck) hCheck.textContent = badgeCount;
       const bCheck = document.getElementById('bottomNavCheckoutBadge');
-      if (bCheck) bCheck.textContent = totalDozens;
+      if (bCheck) bCheck.textContent = badgeCount;
 
-      // شارات المفضلة
       document.getElementById('favCount').textContent = favs.length;
       const mFavCount = document.getElementById('menuFavCount');
       if (mFavCount) mFavCount.textContent = favs.length;
 
-      // الشريط العائم للسلة (يختفي في صفحة تأكيد الطلب لتجنب تراكب أزرار الفورم)
+      // الشريط العائم للسلة
       const floatingBar = document.getElementById('floatingCartBar');
-      if (totalDozens > 0 && !isCheckout) {
+      if (summary.totalPieces > 0 && !isCheckout) {
         floatingBar.classList.add('active');
-        document.getElementById('floatingCartCount').textContent = `${totalDozens} دستة (${cart.reduce((s, i) => s + i.qty, 0)} قطعة)`;
-        document.getElementById('floatingCartTotal').textContent = `${totalMoney.toLocaleString('ar-EG')} ج.م`;
+        let parts = [];
+        if (summary.totalRetailPieces > 0) parts.push(`${summary.totalRetailPieces} قطعة قطاعي`);
+        if (summary.totalWholesaleDozens > 0) parts.push(`${summary.totalWholesaleDozens} دستة جملة`);
+        document.getElementById('floatingCartCount').textContent = parts.join(' + ') + ` (${summary.totalPieces} قطعة)`;
+        document.getElementById('floatingCartTotal').textContent = `${summary.totalMoney.toLocaleString('ar-EG')} ج.م`;
       } else {
         floatingBar.classList.remove('active');
       }
@@ -2749,38 +3465,57 @@
       container.innerHTML = '';
       
       if (cart.length === 0) {
-        container.innerHTML = `<div class="empty-state"><i class="fa-solid fa-cart-arrow-down"></i><p>سلة الجملة فارغة حالياً</p></div>`;
+        container.innerHTML = `<div class="empty-state"><i class="fa-solid fa-cart-arrow-down"></i><p>سلة المشتريات فارغة حالياً</p></div>`;
         totalEl.textContent = '0 ج.م';
         return;
       }
 
-      let total = 0;
+      const summary = getCartSummary();
+      if (summary.hasWholesale) {
+        container.innerHTML += `
+          <div class="cart-wholesale-note">
+            <i class="fa-solid fa-percent"></i>
+            <span>تنبيه: أصناف الجملة يُطبق عليها خصم خاص نتفق عليه معكم بالواتساب حسب الكمية!</span>
+          </div>
+        `;
+      }
+
       cart.forEach(item => {
-        const itemTotal = item.price * item.qty;
-        const doz = item.qty / 12;
-        total += itemTotal;
+        const isDozen = item.unit === 'dozen';
+        const pieces = isDozen ? item.qty * 12 : item.qty;
+        const itemTotal = item.price * pieces;
         const imgUrl = item.img || getPrimaryImage(item);
+        
         container.innerHTML += `
           <div class="cart-item">
             <img src="${imgUrl}" class="cart-img" alt="${item.title}">
             <div class="cart-details">
               <div class="cart-title">${item.title}</div>
-              <div class="cart-code">كود: ${item.code}</div>
+              
+              <div class="cart-meta-tags">
+                <span class="cart-meta-tag code"><i class="fa-solid fa-barcode"></i> كود: ${item.code}</span>
+                <span class="cart-meta-tag material"><i class="fa-solid fa-gem"></i> ${item.material || 'خامة فاخرة'}</span>
+              </div>
+              
+              <div class="cart-unit-pill ${isDozen ? 'wholesale' : 'retail'}">
+                ${isDozen ? '<i class="fa-solid fa-boxes-stacked"></i> جملة (بالدستة)' : '<i class="fa-solid fa-bag-shopping"></i> قطاعي (بالقطعة)'}
+              </div>
+
               <div class="cart-price">${itemTotal.toLocaleString('ar-EG')} ج.م <span style="font-size:11px; color:#888;">(${item.price} ج/قطعة)</span></div>
               
               <div style="display:flex; justify-content: space-between; align-items:center; margin-top: auto;">
                 <div class="qty-control">
-                  <button onclick="updateQty(${item.id}, 12)">+</button>
-                  <span>${doz} دستة</span>
-                  <button onclick="updateQty(${item.id}, -12)">-</button>
+                  <button onclick="updateQty('${item.cartKey}', 1)" aria-label="زيادة">+</button>
+                  <span>${isDozen ? `${item.qty} دستة (${pieces} ق)` : `${item.qty} قطعة`}</span>
+                  <button onclick="updateQty('${item.cartKey}', -1)" aria-label="تقليل">-</button>
                 </div>
-                <button onclick="removeCartItem(${item.id})" style="color: var(--danger); font-size:16px; padding:4px;" title="حذف"><i class="fa-solid fa-trash-can"></i></button>
+                <button onclick="removeCartItem('${item.cartKey}')" style="color: var(--danger); font-size:16px; padding:4px;" title="حذف"><i class="fa-solid fa-trash-can"></i></button>
               </div>
             </div>
           </div>
         `;
       });
-      totalEl.textContent = total.toLocaleString('ar-EG') + ' ج.م';
+      totalEl.textContent = summary.totalMoney.toLocaleString('ar-EG') + ' ج.م';
     }
 
     function renderFav() {
@@ -2798,11 +3533,14 @@
             <img src="${imgUrl}" class="cart-img" alt="${item.title}">
             <div class="cart-details">
               <div class="cart-title">${item.title}</div>
-              <div class="cart-code">كود: ${item.code}</div>
-              <div style="font-size: 13px; font-weight: 800; color: var(--brand-gold);">${item.price} ج.م للقطعة</div>
+              <div class="cart-meta-tags">
+                <span class="cart-meta-tag code"><i class="fa-solid fa-barcode"></i> كود: ${item.code}</span>
+                <span class="cart-meta-tag material"><i class="fa-solid fa-gem"></i> ${item.material || 'خامة فاخرة'}</span>
+              </div>
+              <div style="font-size: 13px; font-weight: 800; color: var(--brand-gold);">${item.price} ج.م للقطعة (متاح قطاعي وجملة)</div>
               ${isOut ? '<div style="font-size: 11px; color: var(--danger); font-weight: 700; margin-top: 2px;"><i class="fa-solid fa-ban"></i> نفد بالمخزون</div>' : ''}
               <div style="display: flex; gap: 12px; margin-top: auto; align-items: center; padding-top: 6px;">
-                <button onclick="openProductModal(${item.id}); closeDrawers();" style="font-size: 12px; color: var(--brand-gold-dark); font-weight: 800; cursor: pointer;">عرض التفاصيل</button>
+                <button onclick="openProductModal(${item.id}); closeDrawers();" style="font-size: 12px; color: var(--brand-gold-dark); font-weight: 800; cursor: pointer;">عرض وتحديد الكمية</button>
                 <button onclick="removeFavItem(${item.id})" style="color: var(--danger); font-size: 12px; cursor: pointer;">إزالة</button>
               </div>
             </div>
@@ -2819,89 +3557,111 @@
       container.innerHTML = '';
       
       if (cart.length === 0) {
-        container.innerHTML = '<p style="color:#e74c3c; text-align:center; padding: 25px 0; font-weight:700;">سلة الجملة فارغة حالياً. قم بإضافة موديلات للمتابعة.</p>';
+        container.innerHTML = '<p style="color:#e74c3c; text-align:center; padding: 25px 0; font-weight:700;">سلة المشتريات فارغة حالياً. قم بإضافة موديلات للمتابعة.</p>';
         totalEl.textContent = '0 ج.م';
-        if (badgeEl) badgeEl.textContent = '0 دستة';
+        if (badgeEl) badgeEl.textContent = '0 صنف';
         return;
       }
 
-      let total = 0;
-      let totalDozens = 0;
+      const summary = getCartSummary();
+
       cart.forEach(item => {
-        const itemTotal = item.price * item.qty;
-        const doz = item.qty / 12;
-        total += itemTotal;
-        totalDozens += doz;
+        const isDozen = item.unit === 'dozen';
+        const pieces = isDozen ? item.qty * 12 : item.qty;
+        const itemTotal = item.price * pieces;
         const imgUrl = item.img || getPrimaryImage(item);
+        
         container.innerHTML += `
           <div class="checkout-item-row">
             <img src="${imgUrl}" class="checkout-item-img" alt="${item.title}">
             <div class="checkout-item-details">
               <div class="checkout-item-title">${item.title}</div>
-              <div class="checkout-item-code">كود الموديل: ${item.code}</div>
-              <div class="checkout-item-qty">${doz} دستة (${item.qty} قطعة) × ${item.price} ج.م</div>
+              <div class="checkout-item-code">
+                كود: ${item.code} • الخامة: ${item.material || 'فاخرة'}
+                <span class="checkout-unit-badge ${isDozen ? 'wholesale' : 'retail'}">
+                  ${isDozen ? 'جملة (بالدستة)' : 'قطاعي (بالقطعة)'}
+                </span>
+              </div>
+              <div class="checkout-item-qty">
+                ${isDozen ? `${item.qty} دستة (${pieces} قطعة)` : `${item.qty} قطعة`} × ${item.price} ج.م
+              </div>
             </div>
             <div class="checkout-item-price">${itemTotal.toLocaleString('ar-EG')} ج.م</div>
           </div>
         `;
       });
-      totalEl.textContent = total.toLocaleString('ar-EG') + ' ج.م';
-      if (badgeEl) badgeEl.textContent = `${totalDozens} دستة`;
+
+      totalEl.textContent = summary.totalMoney.toLocaleString('ar-EG') + ' ج.م';
+      if (badgeEl) {
+        let bText = [];
+        if (summary.totalRetailPieces > 0) bText.push(`${summary.totalRetailPieces} ق قطاعي`);
+        if (summary.totalWholesaleDozens > 0) bText.push(`${summary.totalWholesaleDozens} دستة جملة`);
+        badgeEl.textContent = bText.join(' + ') || `${summary.totalPieces} قطعة`;
+      }
     }
 
     function buildOrderMessageText() {
-      const name = document.getElementById('custName').value.trim();
-      const phone = document.getElementById('custPhone').value.trim();
-      const address = document.getElementById('custAddress').value.trim();
-      const notes = document.getElementById('custNotes').value.trim();
+      const name = document.getElementById('custName') ? document.getElementById('custName').value.trim() : '';
+      const phone = document.getElementById('custPhone') ? document.getElementById('custPhone').value.trim() : '';
+      const address = document.getElementById('custAddress') ? document.getElementById('custAddress').value.trim() : '';
+      const notes = document.getElementById('custNotes') ? document.getElementById('custNotes').value.trim() : '';
+      const summary = getCartSummary();
 
-      let total = 0;
-      let totalPieces = 0;
-      let totalDozens = 0;
       let lines = [];
-      lines.push("*طلب جملة جديد - مصنع حكاية HEKAYA*");
+      lines.push("*طلب جديد من موقع مصنع حكاية HEKAYA (جملة & قطاعي)*");
       lines.push("===========================");
-      lines.push("*بيانات التاجر / المكتب:*");
+      lines.push("*بيانات العميل:*");
       lines.push(`👤 الاسم: ${name}`);
       lines.push(`📞 رقم الهاتف (واتساب): ${phone}`);
       if (address) lines.push(`📍 العنوان: ${address}`);
       if (notes) lines.push(`📝 ملاحظات: ${notes}`);
       lines.push("===========================");
-      lines.push("*تفاصيل الموديلات المطلوبة:*");
+      lines.push("*تفاصيل الأصناف المطلوبة:*");
       
       cart.forEach((item, idx) => {
-        const itemTotal = item.price * item.qty;
-        const doz = item.qty / 12;
-        total += itemTotal;
-        totalPieces += item.qty;
-        totalDozens += doz;
+        const isDozen = item.unit === 'dozen';
+        const pieces = isDozen ? item.qty * 12 : item.qty;
+        const itemTotal = item.price * pieces;
+        const unitName = isDozen ? `جملة (${item.qty} دستة = ${pieces} قطعة)` : `قطاعي (${item.qty} قطعة)`;
+        
         lines.push(`${idx + 1}. كود [${item.code}] - ${item.title}`);
-        lines.push(`   الكمية: ${doz} دستة (${item.qty} قطعة) | ${itemTotal.toLocaleString('ar-EG')} ج.م`);
+        lines.push(`   🧵 الخامة: ${item.material || 'خامة مصنع حكاية الفاخرة'}`);
+        lines.push(`   📦 الكمية: ${unitName} | 💰 السعر: ${itemTotal.toLocaleString('ar-EG')} ج.م (${item.price} ج/قطعة)`);
       });
       
       lines.push("===========================");
-      lines.push(`📦 إجمالي الكمية: ${totalDozens} دستة (${totalPieces} قطعة)`);
-      lines.push(`💰 إجمالي الفاتورة المبدئية: ${total.toLocaleString('ar-EG')} ج.م`);
-      lines.push("");
-      lines.push("🌟 *ملحوظة للمصنع:* يُرجى تأكيد توافر الألوان وتطبيق الخصم المستحق على الكمية.");
+      lines.push("*ملخص الكميات والإجمالي المبدئي:*");
+      if (summary.totalRetailPieces > 0) {
+        lines.push(`🛍️ إجمالي القطاعي: ${summary.totalRetailPieces} قطعة (${summary.totalRetailMoney.toLocaleString('ar-EG')} ج.م)`);
+      }
+      if (summary.totalWholesaleDozens > 0) {
+        lines.push(`📦 إجمالي الجملة: ${summary.totalWholesaleDozens} دستة = ${summary.totalWholesaleDozens * 12} قطعة (${summary.totalWholesaleMoney.toLocaleString('ar-EG')} ج.م)`);
+      }
+      lines.push(`🔢 إجمالي عدد القطع الكلي: ${summary.totalPieces} قطعة`);
+      lines.push(`💰 إجمالي الفاتورة المبدئية: ${summary.totalMoney.toLocaleString('ar-EG')} ج.م`);
+      
+      if (summary.hasWholesale) {
+        lines.push("");
+        lines.push("🤝 *ملحوظة بخصوص خصم الجملة:*");
+        lines.push("(الطلب يتضمن كميات جملة - في انتظار مراجعة حضرتك للكمية والاتفاق على نسبة الخصم المستحقة)");
+      } else {
+        lines.push("");
+        lines.push("✨ *طلب قطاعي بأسعار المصنع المباشرة*");
+      }
+
       return lines.join("\n");
     }
 
     function submitOrder() {
       const nameInput = document.getElementById('custName');
       const phoneInput = document.getElementById('custPhone');
-      const addressInput = document.getElementById('custAddress');
-      const notesInput = document.getElementById('custNotes');
-
       const name = nameInput ? nameInput.value.trim() : '';
       const phone = phoneInput ? phoneInput.value.trim() : '';
-      const address = addressInput ? addressInput.value.trim() : '';
-      const notes = notesInput ? notesInput.value.trim() : '';
 
       if (!name || !phone) {
-        showToast("يرجى إدخال اسم التاجر ورقم الهاتف كحد أدنى للتواصل.");
-        if (!name) document.getElementById('custName').focus();
-        else document.getElementById('custPhone').focus();
+        showToast("يرجى إدخال اسم العميل ورقم الهاتف كحد أدنى للتواصل.");
+        if (!name && nameInput) nameInput.focus();
+        else if (phoneInput) phoneInput.focus();
         return;
       }
       if (cart.length === 0) {
@@ -2909,35 +3669,9 @@
         return;
       }
 
-      let total = 0;
-      let orderItemsText = "";
-
-      cart.forEach(item => {
-        const itemTotal = item.price * item.qty;
-        total += itemTotal;
-        const dozens = item.qty / 12;
-        orderItemsText += `• كود: ${item.code} | ${dozens} دستة (${item.qty} قطعة) | ${itemTotal} ج.م\n`;
-      });
-
-      // صياغة الرسالة بنصوص عادية وفواصل أسطر طبيعية
-      let msg = `*طلب جملة جديد | مصنع حكاية*\n`;
-      msg += `===========================\n`;
-      msg += `*بيانات التاجر:*\n`;
-      msg += `الاسم: ${name}\n`;
-      msg += `الهاتف: ${phone}\n`;
-      if (address) msg += `العنوان: ${address}\n`;
-      if (notes) msg += `ملاحظات: ${notes}\n`;
-      msg += `===========================\n`;
-      msg += `*تفاصيل الفاتورة:*\n`;
-      msg += orderItemsText;
-      msg += `===========================\n`;
-      msg += `*إجمالي الفاتورة المبدئية:* ${total} ج.م\n\n`;
-      msg += `(تُطبق سياسة المصنع في الخصومات الإضافية عند مراجعة الطلب معكم)`;
-
-      // تشفير الرابط بالكامل لمنع أي أخطاء متصفح
+      const msg = buildOrderMessageText();
       const waURL = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${encodeURIComponent(msg)}`;
 
-      // طريقة فتح الرابط الآمنة لتخطي حظر النوافذ المنبثقة
       const link = document.createElement('a');
       link.href = waURL;
       link.target = '_blank';
@@ -2948,8 +3682,8 @@
     }
 
     function copyOrderText() {
-      const name = document.getElementById('custName').value.trim();
-      const phone = document.getElementById('custPhone').value.trim();
+      const name = document.getElementById('custName') ? document.getElementById('custName').value.trim() : '';
+      const phone = document.getElementById('custPhone') ? document.getElementById('custPhone').value.trim() : '';
       if (!name || !phone) {
         showToast("يرجى ملء الاسم ورقم الهاتف أولاً.");
         return;
