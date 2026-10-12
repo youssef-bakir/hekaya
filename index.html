@@ -2899,12 +2899,13 @@
       const notes = notesInput ? notesInput.value.trim() : '';
 
       if (!name || !phone) {
-        alert("يرجى إدخال الاسم ورقم الهاتف لإتمام الطلب.");
+        showToast("يرجى إدخال اسم التاجر ورقم الهاتف كحد أدنى للتواصل.");
+        if (!name) document.getElementById('custName').focus();
+        else document.getElementById('custPhone').focus();
         return;
       }
-
-      if (!cart || cart.length === 0) {
-        alert("سلة الطلبات فارغة، يرجى إضافة موديلات أولاً.");
+      if (cart.length === 0) {
+        showToast("سلة المشتريات فارغة. اختر موديلات أولاً.");
         return;
       }
 
